@@ -1,0 +1,9 @@
+.nav {
+  grid-area: n;
+  background-color: rgb(11, 65, 65);
+}
+
+a {
+  color: azure;
+}
+  
