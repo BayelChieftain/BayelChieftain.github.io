@@ -3,7 +3,7 @@ import c from './MyPosts.module.css'
 import Post from "../Post";
 
 const  MyPost2 = () => {
-    return  <div className={c.content}>
+    return  <div>
     <div>
       my post
      </div>
