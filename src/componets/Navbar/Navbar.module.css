@@ -1,9 +1,15 @@
 .nav {
   grid-area: n;
   background-color: rgb(11, 65, 65);
+  padding: 20px;
 }
 
-.a {
+.nav a {
   color: azure;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav a:focus {
+  color: rgb(251, 255, 0);
 }
   
