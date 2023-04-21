@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './componets/Header/Header';
 import Navbar from './componets/Navbar/Navbar';
-import Profile from './componets/Profile/MypostsDir/Post/Profile';
+import Profile from './componets/Profile/Profile';
 import Dialog from './componets/Dialogs/Dialogs';
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
