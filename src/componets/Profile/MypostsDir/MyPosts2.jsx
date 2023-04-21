@@ -3,7 +3,12 @@ import React from "react";
 import Post from "./Post";
 
 const  MyPost2 = () => {
-    return (
+  let postData = [
+    {id: 1, message: 'Hello world!'},
+    {id: 2, message: "its my first post"}
+];
+  
+  return (
        <div className={c.PostBlock}>
         
         <h2>My post</h2>
@@ -17,8 +22,8 @@ const  MyPost2 = () => {
         </div>
 
      <div className={c.posts}>
-      <Post Message='Hello world!'/>
-      <Post  Message='its my first post'/>
+      <Post Message={postData[0].message}/>
+      <Post  Message={postData[1].message} />
      </div>
     
     </div>
