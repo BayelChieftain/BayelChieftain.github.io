@@ -2,11 +2,21 @@ import React from "react";
  import c from './MyPosts.module.css'
 import Post from "./Post";
 
-const  MyPost2 = () => {
-  let postData = [
-    {id: 1, message: 'Hello world!'},
-    {id: 2, message: "its my first post"}
+
+let postData = [
+  {id: 1, message: 'Hello world!'},
+  {id: 2, message: "its my first post"},
+  {id: 1, message: 'WORLD WORK'},
+  {id: 1, message: 'samurai way'},
+  {id: 1, message: '101 movie'},
 ];
+
+let postElements = postData
+  .map(post => <Post Message={post.message}/>)
+
+
+const  MyPost2 = () => {
+
   
   return (
        <div className={c.PostBlock}>
@@ -22,8 +32,7 @@ const  MyPost2 = () => {
         </div>
 
      <div className={c.posts}>
-      <Post Message={postData[0].message}/>
-      <Post  Message={postData[1].message} />
+     { postElements }
      </div>
     
     </div>
