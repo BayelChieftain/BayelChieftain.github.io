@@ -21,11 +21,18 @@ let messagesData = [
   {id: 5, message: "bayel crossavchik"} 
 ];
 
+let postData = [
+  {id: 1, message: 'Hello world!'},
+  {id: 2, message: "its my first post"},
+  {id: 1, message: 'WORLD WORK'},
+  {id: 1, message: 'samurai way'},
+  {id: 1, message: '101 movie'},
+];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App dialogData={dialogData} messagesData={messagesData}/>
+    <App dialogData={dialogData} messagesData={messagesData} postData={postData}/>
   </React.StrictMode>
 );
 

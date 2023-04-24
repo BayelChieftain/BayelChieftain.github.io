@@ -3,20 +3,21 @@ import React from "react";
 import Post from "./Post";
 
 
-let postData = [
-  {id: 1, message: 'Hello world!'},
-  {id: 2, message: "its my first post"},
-  {id: 1, message: 'WORLD WORK'},
-  {id: 1, message: 'samurai way'},
-  {id: 1, message: '101 movie'},
-];
+// let postData = [
+//   {id: 1, message: 'Hello world!'},
+//   {id: 2, message: "its my first post"},
+//   {id: 1, message: 'WORLD WORK'},
+//   {id: 1, message: 'samurai way'},
+//   {id: 1, message: '101 movie'},
+// ];
 
-let postElements = postData
+
+
+
+const  MyPost2 = (props) => {
+
+  let postElements = props.postData
   .map(post => <Post Message={post.message}/>)
-
-
-const  MyPost2 = () => {
-
   
   return (
        <div className={c.PostBlock}>
