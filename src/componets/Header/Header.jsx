@@ -3,7 +3,7 @@ import headCss from './Header.module.css';
 
 const Header = (props) => {
     return  <header className={headCss.header}>
-    <img src='https://w7.pngwing.com/pngs/187/532/png-transparent-logo-boletia-brand-management-organization-dark-background-angle-text-logo.png' />
+    <img src='https://assets.stickpng.com/images/61fc02743cf0e70004222074.png' />
    </header>
 }
 
