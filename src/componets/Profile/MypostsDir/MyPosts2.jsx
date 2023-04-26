@@ -3,17 +3,6 @@ import React from "react";
 import Post from "./Post";
 
 
-// let postData = [
-//   {id: 1, message: 'Hello world!'},
-//   {id: 2, message: "its my first post"},
-//   {id: 1, message: 'WORLD WORK'},
-//   {id: 1, message: 'samurai way'},
-//   {id: 1, message: '101 movie'},
-// ];
-
-
-
-
 const  MyPost2 = (props) => {
 
   let postElements = props.postData
@@ -23,8 +12,8 @@ const  MyPost2 = (props) => {
   
   let addPost = () => {
     let text = newPostElement.current.value;
-
-    alert(text);
+    props.addPost(text);
+    newPostElement.current.value = '';
   }
 
   return (
