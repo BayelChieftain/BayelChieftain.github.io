@@ -17,18 +17,26 @@ import Post from "./Post";
 const  MyPost2 = (props) => {
 
   let postElements = props.postData
-  .map(post => <Post Message={post.message}/>)
+  .map(post => <Post Message={post.message}/>);
+
+  let newPostElement = React.createRef();
   
+  let addPost = () => {
+    let text = newPostElement.current.value;
+
+    alert(text);
+  }
+
   return (
        <div className={c.PostBlock}>
         
         <h2>My post</h2>
         <div>
           <div>
-            <textarea></textarea>
+            <textarea ref={ newPostElement }></textarea>
           </div>
           <div>
-            <button>Add post</button>
+            <button onClick={ addPost }>Add post</button>
           </div>
         </div>
 
