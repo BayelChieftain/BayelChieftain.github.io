@@ -12,4 +12,14 @@
 .nav a:focus {
   color: rgb(251, 255, 0);
 }
+
+.navItem {
+  padding: 8px;
+  transition: all 1s;
+}
+.navItem:hover {
+  background: linear-gradient(to bottom, #061b3d10, #16492f);
+  border: solid 1px black;
+  border-radius: 4px;
+}
   

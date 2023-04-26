@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 // импорт данных
 import { addPost } from './componets/redux/state';
+import { BrowserRouter } from 'react-router-dom';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let renderEntireTree = (state) => {
   root.render(
-    <React.StrictMode>
-      <App state={state} addPost={addPost} />
-    </React.StrictMode>
+    <BrowserRouter>
+     <React.StrictMode>
+       <App state={state} addPost={addPost} />
+     </React.StrictMode>
+    </BrowserRouter>
   );
 }
 
