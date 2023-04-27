@@ -10,6 +10,7 @@ let state = {
             {id: 1, message: '101 movie'},
           ],
           newPostText: "text",
+          newPostMessage: "text"
     },
     
   
@@ -44,7 +45,7 @@ export let addPost = () => {
 
 export let updateNewPostText = (newText) => {
  
-  state.profilePages.newPostText = newText;
+  state.profilePages.newPostMessage = newText;
   renderEntireTree(state);
 };
 
