@@ -8,9 +8,11 @@ let state = {
             {id: 1, message: 'WORLD WORK'},
             {id: 1, message: 'samurai way'},
             {id: 1, message: '101 movie'},
-          ]
+          ],
+          newPostText: "text",
     },
-
+    
+  
     messagesPages: {
         dialogData: [
             {id: 1, name: "dimych"},
@@ -31,12 +33,19 @@ let state = {
     }
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
-     id: 5, message: postMessage
+     id: 5, message: state.profilePages.newPostText
   };
   state.profilePages.postData.push(newPost);
+  state.profilePages.newPostText = ''
   renderEntireTree(state);
-}
+};
+
+export let updateNewPostText = (newText) => {
+ 
+  state.profilePages.newPostText = newText;
+  renderEntireTree(state);
+};
 
 export default state;
