@@ -32,7 +32,9 @@ const App = (props) => {
           <Route path='/profile' element={<Profile 
           postData={props.state.profilePages.postData} 
           addPost={props.addPost} 
-          newPostText={props.state.profilePages.newPostText} 
+          
+          profilePages={props.state.profilePages}
+          
           updateNewPostText={props.updateNewPostText} />}/> 
             <Route path='/news' element={<News />}/> 
           <Route path='/music' element={<Music />}/> 
