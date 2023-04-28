@@ -31,11 +31,11 @@ const App = (props) => {
         
           <Route path='/profile' element={<Profile 
           postData={props.state.profilePages.postData} 
-          addPost={props.addPost} 
+          dispatch={props.dispatch} 
           
           profilePages={props.state.profilePages}
           
-          updateNewPostText={props.updateNewPostText} />}/> 
+           />}/> 
             <Route path='/news' element={<News />}/> 
           <Route path='/music' element={<Music />}/> 
         <Route path='/settings' element={<Setting />}/> 

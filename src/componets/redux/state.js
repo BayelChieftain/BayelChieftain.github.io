@@ -34,32 +34,35 @@ let store = {
 
     }
 },
+
+  _callSubscribe() {
+  console.log("state app")
+},
+
+  subscribe(observer)  {
+  this._callSubscribe = observer;
+},
+
   getState() {
     return this._state
   },
 
-  _callSubscribe() {
-    console.log("state app")
- },
 
-  addPost() {
-  let newPost = {
-     id: 5, message: this._state.profilePages.newPostText
-  };
-  this._state.profilePages.postData.push(newPost);
-  this._state.profilePages.newPostText = ''
-  this._callSubscribe(this._state);
-},
+  dispatch(action) { // { type: "addPost" }
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5, message: this._state.profilePages.newPostText
+     };
+     this._state.profilePages.postData.push(newPost);
+     this._state.profilePages.newPostText = ''
+     this._callSubscribe(this._state);
 
-  updateNewPostText(newText)  {
- 
-  this._state.profilePages.newPostText = newText;
-  this._callSubscribe(this._state);
-},
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePages.newPostText = action.newText;
+      this._callSubscribe(this._state);
+    };
+  }
   
-subscribe(observer)  {
-  this._callSubscribe = observer;
-}
 
 };
 
