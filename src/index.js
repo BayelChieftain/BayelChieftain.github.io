@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 // импорт данных
-import store from './componets/redux/state';
+import store from './componets/redux/reduxStore';
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -23,7 +23,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 };
 
 renderEntireTree(store.getState())
-store.subscribe(renderEntireTree)
+store.subscribe(() => {
+  let state = store.getState();
+  renderEntireTree(state);
+})
 
 
 
