@@ -1,18 +1,13 @@
 import React from "react";
 import c from './Profile.module.css'
-import MyPost2 from "./MypostsDir/MyPosts2";
-import ProfileInfo from "./ProfileItem/ProfileInfo";
 
+import ProfileInfo from "./ProfileItem/ProfileInfo";
+import MyPostContainer from "./MypostsDir/MyPostCotainer";
 
 const  Profile = (props) => {
     return  <div >
     <ProfileInfo />
-    
-    <MyPost2 postData={props.postData} 
-    dispatch={props.dispatch} 
-    
-    newPostText={props.profilePages.newPostText}
-    />
+    <MyPostContainer store={props.store}/>
 
 
     </div>

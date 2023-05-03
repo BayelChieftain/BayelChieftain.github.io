@@ -3,12 +3,12 @@ import './App.css';
 import Header from './componets/Header/Header';
 import Navbar from './componets/Navbar/Navbar';
 import Profile from './componets/Profile/Profile';
-import Dialog from './componets/Dialogs/Dialogs';
 
 import { Routes, Route } from "react-router-dom";
 import Setting from './componets/Setting/Setting';
 import News from './componets/News/News';
 import Music from './componets/Music/Music';
+import DialogContainer from './componets/Dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -23,20 +23,12 @@ const App = (props) => {
       <div className='app-wrapper-content'> 
       <Routes>
         <Route path='/dialog' element={
-        <Dialog 
-        store={props.store}
-        dialogData={props.state.messagesPages.dialogData} 
-        messagesData={props.state.messagesPages.messagesData} 
-        newPostMessage={props.state.profilePages.newPostMessage}
-        updateNewPostText={props.updateNewPostText} />}/>
+        <DialogContainer store={props.store} />}  />
         
         
           <Route path='/profile' element={
           <Profile 
-          postData={props.state.profilePages.postData} 
-          dispatch={props.dispatch} 
-          
-          profilePages={props.state.profilePages}
+            store={props.store}
           
            />}/> 
             <Route path='/news' element={<News />}/> 
