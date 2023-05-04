@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -6,6 +5,7 @@ import App from './App';
 // импорт данных
 import store from './componets/redux/reduxStore';
 import { BrowserRouter } from 'react-router-dom';
+import  { Provider } from './storeContext';
 
 
 
@@ -14,9 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <BrowserRouter>
      <React.StrictMode>
-       <App state={state} 
-       dispatch={store.dispatch.bind(store)}  
-       store={store}/>
+      <Provider store={store}>
+        <App state={state} 
+        dispatch={store.dispatch.bind(store)}  
+        store={store}/>
+      </Provider>
      </React.StrictMode>
     </BrowserRouter>
   );
