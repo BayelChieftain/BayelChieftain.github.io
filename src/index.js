@@ -5,9 +5,7 @@ import App from './App';
 // импорт данных
 import store from './componets/redux/reduxStore';
 import { BrowserRouter } from 'react-router-dom';
-import  { Provider } from './storeContext';
-
-
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
  let renderEntireTree = (state) => {
@@ -15,9 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     <BrowserRouter>
      <React.StrictMode>
       <Provider store={store}>
-        <App state={state} 
-        dispatch={store.dispatch.bind(store)}  
-        store={store}/>
+        <App store={store}/>
       </Provider>
      </React.StrictMode>
     </BrowserRouter>

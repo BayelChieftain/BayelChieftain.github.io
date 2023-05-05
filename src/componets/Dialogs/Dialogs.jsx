@@ -18,7 +18,7 @@ const Dialog = (props) => {
   
    
     let onSendMesageClick = () => {
-        props.sendMessageCreator();
+        props.sendMessage();
     }
 
     let onPostChange = (e) => {
