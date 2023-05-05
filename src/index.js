@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
- let renderEntireTree = (state) => {
+
   root.render(
     <BrowserRouter>
      <React.StrictMode>
@@ -18,13 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
      </React.StrictMode>
     </BrowserRouter>
   );
-};
 
-renderEntireTree(store.getState())
-store.subscribe(() => {
-  let state = store.getState();
-  renderEntireTree(state);
-})
+
+
 
 
 
