@@ -3,17 +3,33 @@ import styles from './Users.module.css';
 import axios, * as others from 'axios';
 import userPhoto from '../../assts/img/interact.png'
 
-class Users extends React.Component {
-    constructor(props) {
-        super(props);
-            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+class Users extends React.Component {    
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPages}&count=${this.props.pageSize }`)
+            .then( response => {
+                this.props.setUsers(response.data.items);
+                this.props.setTotalCounts(response.data.totalCount)
+            });
+    };
+
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize }`)
             .then( response => {
                 this.props.setUsers(response.data.items)
             });
-    };
-    
+    }
+
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize) 
+        let pages = [];
+        for (let i=1; i <= pagesCount; i++) {pages.push(i)}
         return <div>
+            {pages.map( p => {
+               return <span className={this.props.currentPages === p && styles.selectedPage} onClick={ (e) => {this.onPageChanged(p)}}>{p}</span>
+            })}
+            
         {
             this.props.users.map( (u) => 
                 <div key={u.id} >
@@ -26,7 +42,7 @@ class Users extends React.Component {
                             ? <button onClick={ () => { this.props.unfollow(u.id) }} >Unfollow</button> 
                             : <button onClick={ () => { this.props.follow(u.id) }}>follow</button>}
                         </div>
-                    </span>{};
+                    </span>
                         <span>
                             <span>
                                 <div>{u.name}</div>
