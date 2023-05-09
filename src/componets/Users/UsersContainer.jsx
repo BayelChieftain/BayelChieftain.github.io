@@ -2,7 +2,7 @@ import React from 'react';
 import axios, * as others from 'axios';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { followCreator, setCurrentPageAC,  setIsFetchingAC, setTotalCAC, setUsersAC, unFollowCreator } from "../redux/users-reducer";
+import { follow, setCurrentPage,  setIsFetching, setTotalC, setUsers, unFollow } from "../redux/users-reducer";
 import Preloader from '../Preloader/Preloader';
 
 class UsersAPIcomponent extends React.Component {    
@@ -12,7 +12,7 @@ class UsersAPIcomponent extends React.Component {
             .then( response => {
                 this.props.setIsFetching(false)
                 this.props.setUsers(response.data.items);
-                this.props.setTotalCounts(response.data.totalCount)
+                this.props.setTotalC(response.data.totalCount)
             });
     };
 
@@ -54,29 +54,34 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-       follow: (userId) => {
-        dispatch(followCreator(userId))
-       },
-       unfollow: (userId) => {
-        dispatch(unFollowCreator(userId))
-       },
-       setUsers: (users) => {
-        dispatch(setUsersAC(users))
-       },
-       setCurrentPage: (pageNumber) => {
-        dispatch(setCurrentPageAC(pageNumber))
-       },
-       setTotalCounts: (totalCount) => {
-        dispatch(setTotalCAC(totalCount))
-       },
-       setIsFetching: (isFetch) => {
-        dispatch(setIsFetchingAC(isFetch))
-       }
-    }
-}
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIcomponent);
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//        follow: (userId) => {
+//         dispatch(followCreator(userId))
+//        },
+//        unfollow: (userId) => {
+//         dispatch(unFollowCreator(userId))
+//        },
+//        setUsers: (users) => {
+//         dispatch(setUsersAC(users))
+//        },
+//        setCurrentPage: (pageNumber) => {
+//         dispatch(setCurrentPageAC(pageNumber))
+//        },
+//        setTotalCounts: (totalCount) => {
+//         dispatch(setTotalCAC(totalCount))
+//        },
+//        setIsFetching: (isFetch) => {
+//         dispatch(setIsFetchingAC(isFetch))
+//        }
+//     }
+// }
+export default connect(mapStateToProps, {
+    follow,
+    unFollow,
+    setUsers,
+    setCurrentPage,
+    setTotalC,
+    setIsFetching
+       
+})(UsersAPIcomponent);
