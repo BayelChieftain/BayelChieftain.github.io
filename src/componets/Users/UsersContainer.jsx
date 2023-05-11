@@ -8,7 +8,9 @@ import Preloader from '../Preloader/Preloader';
 class UsersAPIcomponent extends React.Component {    
     componentDidMount() {
         this.props.setIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPages}&count=${this.props.pageSize }`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPages}&count=${this.props.pageSize }`, {
+            withCredentials: true
+        })
             .then( response => {
                 this.props.setIsFetching(false)
                 this.props.setUsers(response.data.items);
@@ -19,7 +21,9 @@ class UsersAPIcomponent extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.setIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize }`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize }`, {
+            withCredentials: true
+        })
             .then( response => {
                 this.props.setIsFetching(false)
                 this.props.setUsers(response.data.items)
@@ -34,7 +38,7 @@ class UsersAPIcomponent extends React.Component {
         currentPages={this.props.currentPages}
         onPageChanged={this.onPageChanged}
         users={this.props.users}
-        unfollow={this.props.unfollow}
+        unfollow={this.props.unFollow}
         follow={this.props.follow}
         
         
