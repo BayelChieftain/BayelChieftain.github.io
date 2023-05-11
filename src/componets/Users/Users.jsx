@@ -2,7 +2,7 @@ import React from "react";
 import userPhoto from '../../assts/img/interact.png';
 import styles from './Users.module.css';
 import { NavLink } from "react-router-dom";
-import axios, * as others from 'axios';
+import {  userAPI } from "../../API/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize) 
@@ -26,14 +26,9 @@ let Users = (props) => {
                 <div>
                     { u.followed 
                     ? <button onClick={ () => {
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY": "7b38740e-6682-4bef-94dc-8cb25179ee14"
-                            }
-                        })
-            .then( response => {
-               if (response.data.resultCode === 0) {
+                       
+           userAPI.followDelete(u.id).then( data => {
+               if (data.resultCode === 0) {
                 props.unfollow(u.id); 
                }
             });
@@ -41,14 +36,9 @@ let Users = (props) => {
                         }} >Unfollow</button> 
                     
                     : <button onClick={ () => { 
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY": "7b38740e-6682-4bef-94dc-8cb25179ee14"
-                            }
-                        })
-            .then( response => {
-               if (response.data.resultCode === 0) {
+                      
+                        userAPI.followPost(u.id).then( data => {
+               if (data.resultCode === 0) {
                 props.follow(u.id); 
                }
             });
