@@ -1,8 +1,7 @@
 import React from 'react';
-import axios, * as others from 'axios';
 import { connect } from 'react-redux';
 import Users from './Users';
-import { follow, setCurrentPage,  setIsFetching, setTotalC, setUsers, unFollow } from "../redux/users-reducer";
+import { follow, setCurrentPage,  setIsFetching, setTotalC, setUsers, unFollow, setIsFollowingProgres } from "../redux/users-reducer";
 import Preloader from '../Preloader/Preloader';
 import { userAPI } from '../../API/api';
 
@@ -37,6 +36,8 @@ class UsersAPIcomponent extends React.Component {
         users={this.props.users}
         unfollow={this.props.unFollow}
         follow={this.props.follow}
+        setIsFollowingProgres={this.props.setIsFollowingProgres}
+        followingProgres={this.props.followingProgres}
         
         
         /> 
@@ -51,7 +52,8 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPages.pageSize,
         totalUsersCount: state.usersPages.totalUsersCount,
         currentPages: state.usersPages.currentPages,
-        isFetching: state.usersPages.isFetching
+        isFetching: state.usersPages.isFetching,
+        followingProgres: state.usersPages.followingProgres
     }
 };
 
@@ -83,6 +85,7 @@ export default connect(mapStateToProps, {
     setUsers,
     setCurrentPage,
     setTotalC,
-    setIsFetching
+    setIsFetching,
+    setIsFollowingProgres
        
 })(UsersAPIcomponent);
