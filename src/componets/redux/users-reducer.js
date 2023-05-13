@@ -1,3 +1,5 @@
+import { userAPI } from "../../API/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -70,9 +72,9 @@ const usersReducer = (state = initialState, action) => {
 
 };
 
-export const follow = (userId) =>  ({type: FOLLOW, userId});
+export const followSuccess = (userId) =>  ({type: FOLLOW, userId});
 
-export const unFollow = (userId) => ({type: UNFOLLOW, userId});
+export const unFollowSuccess = (userId) => ({type: UNFOLLOW, userId});
 
 export const setUsers = (users) => ({type: SET_USERS, users});
 
@@ -83,7 +85,50 @@ export const setTotalC = (totalUsersCount) => ({type: SET_TOTAL_COUNT, count: to
 export const setIsFetching = (isFetch) => ({type: TOGGLE_IS_FETCHING, isFetch});
 
 export const setIsFollowingProgres = (isFetch, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetch, userId});
- 
+
+export const getUsersThunkCreator = (currentPages,pageSize) =>  {
+  
+  return (dispatch) => { 
+  
+    dispatch(setIsFetching(true)) 
+  
+  userAPI.getUsers(currentPages, pageSize)  //return promis
+       .then( data => {
+          dispatch(setIsFetching(false)) 
+          dispatch(setUsers(data.items)) 
+          dispatch(setTotalC(data.totalCount))
+          dispatch(setCurrentPage(currentPages))
+       });
+};
+}
+
+export const follow = (userId) =>  {
+  
+  return (dispatch) => { 
+  
+    dispatch(setIsFollowingProgres(true, userId))
+    userAPI.followPost(userId).then( data => {
+    if (data.resultCode === 0) {
+    dispatch(followSuccess(userId)); 
+    }
+    dispatch(setIsFollowingProgres(false, userId))
+    });
+    };
+    };
+
+    export const unfollow = (userId) =>  {
+  
+      return (dispatch) => { 
+      
+        dispatch(setIsFollowingProgres(true, userId)) 
+        userAPI.followDelete(userId).then( data => {
+            if (data.resultCode === 0) {
+             dispatch(unFollowSuccess(userId))
+            }
+            dispatch(setIsFollowingProgres(false, userId)); 
+         });
+        }
+      }
 
 
 export default usersReducer;
