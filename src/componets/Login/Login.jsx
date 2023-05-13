@@ -3,7 +3,7 @@ import React from 'react'
 const Login = (props) =>  {
  
     return (
-      <h1>Login</h1>
+      <h1>You are not authorized</h1>
     )
   
 }
