@@ -2,8 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { getUserProfile } from "../redux/profile-reducer";
-import { Navigate, useParams } from 'react-router-dom';
-import { withAuthRedirect } from "../HOC/withAuthRedirect";
+import { useParams } from 'react-router-dom';
 import { compose } from "redux";
 
 export function withRouter(Children){
@@ -39,7 +38,6 @@ let mapStateToProps = (state) => ({
 export default compose(
     connect(mapStateToProps,{getUserProfile}),
     withRouter,
-    withAuthRedirect
 )(ProfileContainer);
 
     
