@@ -4,6 +4,7 @@ import Users from './Users';
 import { follow, setCurrentPage, unfollow, setIsFollowingProgres, getUsersThunkCreator } from "../redux/users-reducer";
 import Preloader from '../Preloader/Preloader';
 import { withAuthRedirect } from '../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersAPIcomponent extends React.Component {    
     componentDidMount() {
@@ -32,7 +33,6 @@ class UsersAPIcomponent extends React.Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         users: state.usersPages.users,
@@ -43,34 +43,15 @@ const mapStateToProps = (state) => {
     }
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//        follow: (userId) => {
-//         dispatch(followCreator(userId))
-//        },
-//        unfollow: (userId) => {
-//         dispatch(unFollowCreator(userId))
-//        },
-//        setUsers: (users) => {
-//         dispatch(setUsersAC(users))
-//        },
-//        setCurrentPage: (pageNumber) => {
-//         dispatch(setCurrentPageAC(pageNumber))
-//        },
-//        setTotalCounts: (totalCount) => {
-//         dispatch(setTotalCAC(totalCount))
-//        },
-//        setIsFetching: (isFetch) => {
-//         dispatch(setIsFetchingAC(isFetch))
-//        }
-//     }
-// }
-export default withAuthRedirect(connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    setIsFollowingProgres, 
-    // thunk 
-   getUsers: getUsersThunkCreator
-       
-})(UsersAPIcomponent));
+export default compose(
+    withAuthRedirect,
+    (connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setCurrentPage,
+        setIsFollowingProgres, 
+        // thunk 
+       getUsers: getUsersThunkCreator
+    }
+    ))
+)(UsersAPIcomponent)

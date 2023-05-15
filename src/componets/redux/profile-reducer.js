@@ -60,7 +60,7 @@ export const updateNewPostTextCreator = (text) => {
  
  const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
-export const getUserProfile = (userId) => (dispatch) => {
+export const getUserProfile = (userId) => (dispatch) => { // its THUNK FUNC
   userAPI.getProfile(userId)
   .then( response => {    
       dispatch(setUserProfile(response.data))
