@@ -42,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
          case SET_STATUS: 
          return {
           ...state,
-          status: action.response
+          status: action.status
          };
          case SET_USER_PROFILE: 
          return {
@@ -66,7 +66,7 @@ export const updateNewPostTextCreator = (text) => {
  
  const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
- const setStatus = (response) => ({type: SET_STATUS, response});
+ const setStatus = (status) => ({type: SET_STATUS, status});
 
 export const getUserProfile = (userId) => (dispatch) => { // its THUNK FUNC
   userAPI.getProfile(userId)
@@ -86,7 +86,7 @@ export const updateStatus = (status) => (dispatch) => { // its THUNK FUNC
   profileAPI.updateStatus(status)
   .then( response => {    
     if (response.data.resultCode === 0) {
-      dispatch(setStatus(response))
+      dispatch(setStatus(status))
     }
       
   });

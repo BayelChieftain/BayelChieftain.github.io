@@ -23,7 +23,7 @@ export const userAPI = {
         .then(response => response.data)
     },
     getProfile(userId) {
-        console.log("Please profileAPI object");
+        console.warn("Please profileAPI object");
        return profileAPI.getProfile(userId);
      }
 };
@@ -36,7 +36,7 @@ export const profileAPI = {
         return instance.get(`profile/status/` + userId);
       },
       updateStatus(status) {
-        return instance.put(`profile/status/`, { status});
+        return instance.put(`profile/status`, { status: status});
       }
 }
 
