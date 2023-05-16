@@ -14,7 +14,7 @@ const  ProfileInfo = (props) => {
     return  <div>
         <div className={C.discrpBlock}>
             <img src={props.profile.photos.large}/>
-            <ProfileStatus status={"hello"} />
+            <ProfileStatus updateStatus={props.updateStatus} status={props.status} />
         </div>
     </div>
 }
