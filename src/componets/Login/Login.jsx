@@ -1,16 +1,24 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import {  login, logout } from "../redux/auth-reducer";
+import { Navigate } from 'react-router-dom';
+
 
 const LoginForm = (props) =>  {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    props.login(data.email, data.password, data.chekbox);
+    console.log(data)
+  
+  };
   return ( 
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <input {...register("Login", {required: true, maxLength: 200})} placeholder={"Login"} />
+        <input {...register("email", {required: true, maxLength: 200})} placeholder={"Login"} />
       </div>
       <div>
-        <input {...register("Password")} placeholder={"Password"} />
+        <input type={'password'} {...register("password")} placeholder={"Password"} />
       </div>
       <div>
         <input {...register("chekbox")} type={"checkbox"} />
@@ -24,12 +32,20 @@ const LoginForm = (props) =>  {
 }
 
 const Login = (props) =>  {
+
+  if (props.isAuth) {
+    return <Navigate to={'/profile'} />
+  }
  
     return ( <div>
       <h1>You are not authorized</h1>
-     <LoginForm />
+     <LoginForm login={props.login} logout={props.logout} />
      </div>
     )
 }
 
-export default Login;
+let mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps, {login, logout})(Login);
