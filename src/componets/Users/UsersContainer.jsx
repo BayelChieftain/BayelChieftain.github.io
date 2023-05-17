@@ -5,6 +5,7 @@ import { follow, setCurrentPage, unfollow, setIsFollowingProgres, getUsersThunkC
 import Preloader from '../Preloader/Preloader';
 import { withAuthRedirect } from '../HOC/withAuthRedirect';
 import { compose } from 'redux';
+import { getCurrentPagesS, getFollowingProgresS, getPageSizeS, getUsersS, getTotalUsersCountS } from '../redux/users-selector';
 
 class UsersAPIcomponent extends React.Component {    
     componentDidMount() {
@@ -33,13 +34,23 @@ class UsersAPIcomponent extends React.Component {
     }
 }
 
+// const mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPages.users,
+//         pageSize: state.usersPages.pageSize,
+//         totalUsersCount: state.usersPages.totalUsersCount,
+//         currentPages: state.usersPages.currentPages,
+//         followingProgres: state.usersPages.followingProgres
+//     }
+// };
+
 const mapStateToProps = (state) => {
     return {
-        users: state.usersPages.users,
-        pageSize: state.usersPages.pageSize,
-        totalUsersCount: state.usersPages.totalUsersCount,
-        currentPages: state.usersPages.currentPages,
-        followingProgres: state.usersPages.followingProgres
+        users: getUsersS(state),
+        pageSize: getPageSizeS(state),
+        totalUsersCount: getTotalUsersCountS(state),
+        currentPages: getCurrentPagesS(state),
+        followingProgres: getFollowingProgresS(state)
     }
 };
 
