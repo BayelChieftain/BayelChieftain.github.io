@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navbar from './componets/Navbar/Navbar';
-
 import { Routes, Route } from "react-router-dom";
 import Setting from './componets/Setting/Setting';
 import News from './componets/News/News';

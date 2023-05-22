@@ -68,28 +68,21 @@ export const updateNewPostTextCreator = (text) => {
 
  const setStatus = (status) => ({type: SET_STATUS, status});
 
-export const getUserProfile = (userId) => (dispatch) => { // its THUNK FUNC
-  userAPI.getProfile(userId)
-  .then( response => {    
-      dispatch(setUserProfile(response.data))
-  });
+export const getUserProfile = (userId) => async (dispatch) => { // its THUNK FUNC
+  const response = await userAPI.getProfile(userId);
+      dispatch(setUserProfile(response.data));
 };
 
-export const getStatus = (userId) => (dispatch) => { // its THUNK FUNC
-  profileAPI.getStatus(userId)
-  .then( response => {    
-      dispatch(setStatus(response.data))
-  });
+export const getStatus = (userId) => async (dispatch) => { // its THUNK FUNC
+ const response = await profileAPI.getStatus(userId);
+  dispatch(setStatus(response.data));
 };
 
-export const updateStatus = (status) => (dispatch) => { // its THUNK FUNC
-  profileAPI.updateStatus(status)
-  .then( response => {    
-    if (response.data.resultCode === 0) {
+export const updateStatus = (status) => async (dispatch) => { // its THUNK FUNC
+  const response = await profileAPI.updateStatus(status);
+     if (response.data.resultCode === 0) {
       dispatch(setStatus(status))
-    }
-      
-  });
+    };
 };
 
 export default profileReducer;

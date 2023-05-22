@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 import {  login, logout } from "../redux/auth-reducer";
 import { Navigate } from 'react-router-dom';
 
-
 const LoginForm = (props) =>  {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     props.login(data.email, data.password, data.chekbox);
     console.log(data)

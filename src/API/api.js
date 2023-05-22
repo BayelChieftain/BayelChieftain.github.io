@@ -1,11 +1,12 @@
 import axios, * as others from 'axios';
-
+let anon = others;
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
         "API-KEY": "7b38740e-6682-4bef-94dc-8cb25179ee14"
     }
+
 });
 
 
