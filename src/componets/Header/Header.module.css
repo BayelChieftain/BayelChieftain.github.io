@@ -13,3 +13,30 @@
   .loginBlock a {
     color: antiquewhite;
   }
+
+.login {
+  margin: 16px;
+  width: 77px;
+  height: 25px;
+  text-align: center;
+  transition: 444ms;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.login:hover {
+  background-color: #123d85;
+}
+.logoutBox {
+  margin: 16px;
+  height: 30px;
+  font-weight: 555;
+  color: aliceblue;
+}
+.buttonLogout {
+  border-radius: 10px;
+  transition: 400ms;
+}
+.buttonLogout:hover {
+  background-color: #123d85;
+  color: aliceblue;
+}

@@ -1,3 +1,18 @@
 .discrpBlock {
     padding: 11px;
 }
+
+.statusStyle {
+    display: flex;
+    margin-top: 9px;
+    max-width: 450px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px white;
+    border-top: solid 1px white;
+}
+.statusText {
+   text-align: center;
+   height: auto;
+   margin-top: 22px;
+   padding-left: 10px;
+}
