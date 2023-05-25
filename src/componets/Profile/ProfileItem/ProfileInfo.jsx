@@ -20,7 +20,10 @@ const  ProfileInfo = (props) => {
     return  <div>
         <div className={C.discrpBlock}>
             <img className={C.mainPhoto} src={props.profile.photos.large || userPhoto}/>
-            { props.isOwner && <input type="file" onChange={ onMainPhotoSelected } />}
+            { props.isOwner && <div className={C.mainLoadPhoto}>
+            <h4>Загрузить фото профиля</h4>
+            <div> { props.isOwner && <input className={C.inputPhoto} type="file" onChange={ onMainPhotoSelected } /> }</div>
+            </div>}
             <ProfileStatusWithHooks updateStatus={props.updateStatus} status={props.status} />
         </div>
     </div>
