@@ -95,4 +95,12 @@ export const savePhoto = (file) => async (dispatch) => { // its THUNK FUNC
     };
 };
 
+export const saveProfile = (data) => async (dispatch) => { // its THUNK FUNC
+  const response = await profileAPI.saveProfile(data);
+     if (response.data.resultCode === 0) {
+     // dispatch(savePhotoSuccess(response.data.data.photos))
+     console.log('success')
+    };
+};
+
 export default profileReducer;
