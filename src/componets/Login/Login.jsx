@@ -8,8 +8,8 @@ const LoginForm = (props) =>  {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     props.login(data.email, data.password, data.chekbox);
-    console.log(data)
-  
+    console.log(data);
+    // {props.captchaUrl &&  <img src={props.captchaUrl} />}
   };
   return ( 
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -38,12 +38,13 @@ const Login = (props) =>  {
  
     return ( <div>
       <h1>You are not authorized</h1>
-     <LoginForm login={props.login} logout={props.logout} />
+     <LoginForm captchaUrl={props.captchaUrl} login={props.login} logout={props.logout} />
      </div>
     )
 }
 
 let mapStateToProps = (state) => ({
+  captchaUrl: state.auth.captchaUrl,
   isAuth: state.auth.isAuth
 })
 
