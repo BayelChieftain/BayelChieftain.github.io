@@ -50,6 +50,10 @@ const ProfileData = ({profile, isOwner, setEditMode}) => {
    <div>
     <b> Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no'}
    </div>
+
+   <div>
+    <b> Looking for a job Description: </b> {profile.lookingForAJobDescription}
+   </div>
    
    <div>
    <b> About me </b>  {profile.aboutMe}
@@ -68,7 +72,7 @@ const ProfileData = ({profile, isOwner, setEditMode}) => {
 const Contact = ({contactTitle, contactValue}) => {
     return (
         <div className={C.contact}>
-            <b>{contactTitle}</b>: {contactValue}
+            <b>{contactTitle}</b>: {contactValue ? contactValue : '---'}
         </div>
     )
 }

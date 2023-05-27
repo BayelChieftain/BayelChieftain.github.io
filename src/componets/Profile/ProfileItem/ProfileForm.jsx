@@ -18,6 +18,9 @@ const ProfileForm = (props) => {
     <div>
      <b> Looking for a job: </b> <div> { <input {...register("lookingForAJob")} type={"checkbox"} />} </div> 
     </div>
+    <div>
+     <b> Looking for a job Description: </b> <div> { <input {...register("LookingForAJobDescription")}  />} </div> 
+    </div>
     
     <div>
     <b> About me </b> <div> { <textarea {...register("aboutMe")}  />} </div> 
