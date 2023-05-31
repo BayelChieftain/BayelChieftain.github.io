@@ -12,7 +12,7 @@ let Paginator = ({totalItemsCount, pageSize, currentPages, onPageChanged, potrio
     let leftPortoinPageNumber = (portionNumber - 1) * potrionSize + 1;
     let rightPortoinPageNumber = portionNumber * potrionSize;
 
-    return <div>
+    return <div className={styles.paginatorBlock}>
     {portionNumber > 1 &&
     <button onClick={ () => {setPortionNumber(portionNumber - 1)}} >Left</button>
     }
@@ -22,13 +22,13 @@ let Paginator = ({totalItemsCount, pageSize, currentPages, onPageChanged, potrio
        return <span className={currentPages === p && styles.selectedPage}
        
        onClick={ 
-        (e) => {onPageChanged(p)}}>{p}</span>
+        (e) => {onPageChanged(p)}}>{p}  </span>
     
-    }) };
+    }) }
     {
         portionCount > portionNumber && 
         <button onClick={ () => {setPortionNumber(portionNumber + 1)}}>right</button>
-    };
+    }
     </div>
 };
 

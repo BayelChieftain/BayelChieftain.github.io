@@ -1,5 +1,10 @@
 .selectedPage {
+
     font-weight: 777;
-    padding: 10px;
-    font-size: 20px;
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid blue;
+}
+.paginatorBlock {
+    padding: 15px;
 }
