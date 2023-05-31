@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/petSocial-netrwork/precache-manifest.354a627265fec79910538fadc91cc13d.js"
+  "/petSocial-netrwork/precache-manifest.ea8b2c1ececff7ed6059997f5d85342b.js"
 );
 
 workbox.clientsClaim();
