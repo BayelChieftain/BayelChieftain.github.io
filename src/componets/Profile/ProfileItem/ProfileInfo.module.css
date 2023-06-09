@@ -21,8 +21,8 @@
     font-size: 20px;
 }
 .mainPhoto {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 5%;
 }
 .mainLoadPhoto {
@@ -30,6 +30,7 @@
     border-top: solid 1px white;
     max-width: 460px;
     margin-top: 9px;
+    flex-wrap: wrap;
 }
 .inputPhoto {
     margin-top: 25px;
@@ -46,4 +47,29 @@
 }
 .contactLink {
     color: white;
+}
+@media (max-width:1200px) {
+    .mainPhoto {
+        width: 250px;
+        height: 250px;
+        border-radius: 5%;
+    }
+}
+
+@media (max-width:768px) {
+    .mainPhoto {
+        width: 166px;
+        height: 166px;
+        border-radius: 5%;
+    }
+}
+@media (max-width:360px) {
+    .mainPhoto {
+        width: 120px;
+        height: 120px;
+        border-radius: 5%;
+    }
+    .statusText {
+        font-size: 10px;
+    }
 }

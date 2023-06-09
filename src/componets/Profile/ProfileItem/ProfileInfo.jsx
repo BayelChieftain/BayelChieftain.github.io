@@ -70,7 +70,7 @@ const ProfileData = ({ profile, isOwner, setEditMode }) => {
     <div>
       {isOwner && (
         <div>
-          <button onClick={setEditMode}>EDIT</button>
+          <button onClick={setEditMode}>изменить данные</button>
         </div>
       )}
       <div>
