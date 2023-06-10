@@ -62,6 +62,18 @@
         height: 166px;
         border-radius: 5%;
     }
+    .discrpInfo {
+        max-width: 400px;
+    } 
+    .lookingJob {
+        font-size: 10px;
+    }
+    .contact {
+        font-size: 8px;
+    }
+    .statusStyle {
+        max-width: 200px;
+    }
 }
 @media (max-width:360px) {
     .mainPhoto {
@@ -70,6 +82,13 @@
         border-radius: 5%;
     }
     .statusText {
+        font-size: 10px;
+    }
+    .contact {
+        font-size: 50%;
+    }
+    .statusStyle {
+        max-width: 133px;
         font-size: 10px;
     }
 }

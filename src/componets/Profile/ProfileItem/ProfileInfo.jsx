@@ -67,7 +67,7 @@ const ProfileInfo = (props) => {
 
 const ProfileData = ({ profile, isOwner, setEditMode }) => {
   return (
-    <div>
+    <div className={C.discrpInfo}>
       {isOwner && (
         <div>
           <button onClick={setEditMode}>изменить данные</button>
@@ -81,7 +81,7 @@ const ProfileData = ({ profile, isOwner, setEditMode }) => {
         <b> Looking for a job: </b> {profile.lookingForAJob ? "yes" : "no"}
       </div>
 
-      <div>
+      <div className={C.lookingJob}>
         <b> Looking for a job Description: </b>
         {profile.lookingForAJobDescription}
       </div>

@@ -3,4 +3,13 @@
     grid-template-columns: 2fr 10fr;
     padding: 11px;
 }
-
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width:768px) {
+    .textarea {
+        width: 125px;
+        height: 180px;
+    }
+}

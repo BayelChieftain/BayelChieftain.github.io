@@ -37,7 +37,7 @@ const Dialog = (props) => {
 
         <div className={c.messages}>
            <div>{messageElements}</div> 
-           <div> <textarea  onChange={ onPostChange } value={newMessageBody} placeholder="Enter your message"/> </div>
+           <div> <textarea className={c.textarea}  onChange={ onPostChange } value={newMessageBody} placeholder="Enter your message"/> </div>
            <div>   <button onClick={ onSendMesageClick }>SEND</button></div>
         </div>
     </div>

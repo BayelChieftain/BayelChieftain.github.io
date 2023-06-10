@@ -14,6 +14,7 @@
 
 .app-wrapper-content {
   max-width: 100%;
+  height: 100%;
   grid-area: c;
   background: linear-gradient(to bottom, #7fa9f0, #109e54);
 }
